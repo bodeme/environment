@@ -29,13 +29,14 @@ echo "##> Installation VIM environment"
 
 promptFileDelete ~/.vimrc
 promptFileDelete ~/.vim
+promptFileDelete ~/.bashrc
 
 echo "##> Creating symlinks"
 [ ! -L ~/.vimrc ] && ln -s $CURRENT_PATH/vim/vimrc ~/.vimrc
+[ ! -L ~/.bashrc ] && ln -s $CURRENT_PATH/bash/bashrc ~/.bashrc
 [ ! -L ~/.vim ] && ln -s $CURRENT_PATH/vim/ ~/.vim
 
 echo "##> Initializing submodules"
-cd vim
 git submodule init
 git submodule update
 

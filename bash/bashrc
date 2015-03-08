@@ -1,0 +1,3 @@
+. ./git/environment/bash/alias
+. ./git/environment/bash/settings
+. ./git/environment/bash/prompt
