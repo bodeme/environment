@@ -1,0 +1,8 @@
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+set bell-style none
+
+export HISTSIZE=100000
+#unset HISTFILESIZE
+export HISTFILESIZE=""

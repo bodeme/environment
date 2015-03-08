@@ -1,0 +1,40 @@
+Color_Off="\033[0m"
+Red="\033[0;31m"
+Green="\033[0;32m"
+Purple="\033[0;35m"
+BRed="\033[1;31m"
+BPurple="\033[1;35m"
+Yellow="\033[0;33m"
+
+function __prompt_command() {
+  EXIT="$?"
+  START=""
+  END=""
+
+  if [ $EXIT -eq 0 ]; then 
+    START+="\[$Green\][✔]\[$Color_Off\]"; 
+  else 
+    START+="\[$Red\][✘]\[$Color_Off\]"; 
+  fi
+
+  if [ -n "$SSH_CLIENT" ]; then
+    START+=" \[$Yellow\]("
+    START+=`echo $SSH_CLIENT | awk '{ print $1 }'`
+    START+=")\[$Color_Off\]"
+  fi
+
+  local load="`w | head -n1 | awk '{print $11}'`"
+  END+="\[$Yellow\][$load]\[$Color_Off\] "
+  END+="\[$BRed\]\u\[$Color_Off\]@\[$BRed\]\h\[$Color_Off\]:\[$BPurple\]\w\[$Color_Off\]"
+  END+="> "
+
+  GIT_PROMPT_START=$START
+  GIT_PROMPT_END=" $END"
+  PS1="$START $END"
+}
+
+PROMPT_COMMAND=__prompt_command
+
+GIT_PROMPT_ONLY_IN_REPO=1
+
+. /Users/mbo/git/environment/bash/bundle/git-prompt/gitprompt.sh

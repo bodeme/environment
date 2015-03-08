@@ -16,3 +16,6 @@
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline.git
+[submodule "bash/bundle/git-prompt"]
+	path = bash/bundle/git-prompt
+	url = https://github.com/magicmonty/bash-git-prompt.git
