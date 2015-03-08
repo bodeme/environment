@@ -1,8 +1,29 @@
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# don't put duplicate lines in the history. See bash(1) for more options                                                                                                                         
+# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
+export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups                                                                                                                                        
+# ... or force ignoredups and ignorespace
+export HISTCONTROL=ignoreboth
+
+# check the window size after each command and, if necessary,                                                                                                                                    
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
+
+if [ -x /usr/bin/dircolors ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto'
+
+    alias grep='grep --color=auto --exclude-dir="*/be-lib/frameworks*" --exclude-dir="*/.svn*" --exclude-dir="*/.metadata*"'
+    alias fgrep='fgrep --color=auto --exclude-dir="*/be-lib/frameworks*" --exclude-dir="*/.svn*" --exclude-dir="*/.metadata*"'
+    alias egrep='egrep --color=auto --exclude-dir="*/be-lib/frameworks*" --exclude-dir="*/.svn*" --exclude-dir="*/.metadata*"'
+fi
 
 set bell-style none
 
 export HISTSIZE=100000
-#unset HISTFILESIZE
 export HISTFILESIZE=""
