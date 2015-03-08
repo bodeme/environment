@@ -37,4 +37,5 @@ PROMPT_COMMAND=__prompt_command
 
 GIT_PROMPT_ONLY_IN_REPO=1
 
-. /Users/mbo/git/environment/bash/bundle/git-prompt/gitprompt.sh
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+. $DIR/bundle/git-prompt/gitprompt.sh
