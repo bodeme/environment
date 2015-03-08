@@ -23,7 +23,7 @@ function __prompt_command() {
     START+=")\[$Color_Off\]"
   fi
 
-  local load="`w | head -n1 | awk '{print $11}'`"
+  local load=$(uptime | grep -ohe 'load average[s:][: ].*' | awk '{ print $3 }')
   END+="\[$Yellow\][$load]\[$Color_Off\] "
   END+="\[$BRed\]\u\[$Color_Off\]@\[$BRed\]\h\[$Color_Off\]:\[$BPurple\]\w\[$Color_Off\]"
   END+="> "
