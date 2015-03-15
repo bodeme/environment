@@ -1,3 +1,5 @@
 alias git='LANG=en_GB git'
 alias ll='ls -l'
 alias by-the-power-of-greyskull='sudo'
+export EDITOR='vim'
+alias vi='vim'
