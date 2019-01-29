@@ -27,9 +27,15 @@ echo "##> Installation from $CURRENT_PATH"
 echo ""
 echo "##> Installation VIM environment"
 
-promptFileDelete ~/.vimrc
-promptFileDelete ~/.vim
-promptFileDelete ~/.bashrc
+if [ "$1" == "-f" ]; then
+  rm -f ~/.vimrc
+  rm -f ~/.vim
+  rm -f ~/.bashrc
+else
+  promptFileDelete ~/.vimrc
+  promptFileDelete ~/.vim
+  promptFileDelete ~/.bashrc
+fi
 
 echo "##> Creating symlinks"
 [ ! -L ~/.vimrc ] && ln -s $CURRENT_PATH/vim/vimrc ~/.vimrc
