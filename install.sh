@@ -27,7 +27,7 @@ echo "##> Installation from $CURRENT_PATH"
 echo ""
 echo "##> Installation VIM environment"
 
-if [ "$1" == "-f" ]; then
+if [ "$1" -eq "-f" ]; then
   rm -f ~/.vimrc
   rm -f ~/.vim
   rm -f ~/.bashrc
