@@ -22,6 +22,10 @@ function promptFileDelete {
 pushd `dirname $0` > /dev/null
 CURRENT_PATH=`pwd`
 
+if [ "$2" != "" ]; then
+  CURRENT_PATH="$2"
+fi
+
 echo "#> bodeme dev environment <#"
 echo "##> Installation from $CURRENT_PATH"
 echo ""
